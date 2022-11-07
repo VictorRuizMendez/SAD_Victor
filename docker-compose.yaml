@@ -2,21 +2,21 @@ version: '3'
 
 services:
   proxy:
-     image: nginx
+     image: "nginx"
      ports:
-       - '80:80'
+       - "80:80"
 
      volumes:
       - ./conf/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
   webdav:
-   image: bytemark/webdav
-   hostname: web
-   restart: always
+   image: "bytemark/webdav"
+   hostname: "web"
+   restart: "always"
    environment:
-    AUTH_TYPE: Digest
+    AUTH_TYPE: "Digest"
     USERNAME: frodo
     PASSWORD: bolson
    volumes:
       - ./fileconf/webdav:/var/lib/dav
    depends_on:
-      - nginx
+      - "nginx"

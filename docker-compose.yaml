@@ -18,3 +18,5 @@ services:
     PASSWORD: bolson
    volumes:
       - ./fileconf/webdav:/var/lib/dav
+   depends_on:
+      - nginx
